@@ -1,0 +1,25 @@
+<svg width="520" height="200" viewBox="0 0 520 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="VoxWit logo with tagline">
+  <defs>
+    <linearGradient id="lockupGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7C3AED" />
+      <stop offset="100%" stop-color="#06B6D4" />
+    </linearGradient>
+  </defs>
+  <rect width="520" height="200" rx="36" fill="#0B0B15" />
+  <g transform="translate(32 40)">
+    <rect width="112" height="112" rx="26" fill="#1E1B4B" />
+    <path d="M24 30c0-8 6.5-14.5 14.5-14.5h57c8 0 14.5 6.5 14.5 14.5v38c0 8-6.5 14.5-14.5 14.5H83l-14 25-14-25H38.5C30.5 82.5 24 76 24 68z" fill="url(#lockupGradient)" />
+    <circle cx="46" cy="46" r="7" fill="#fff" />
+    <circle cx="86" cy="46" r="7" fill="#fff" />
+    <path d="M52 101c11 8 33 8 44 0" stroke="#fff" stroke-width="7" stroke-linecap="round" fill="none" />
+  </g>
+  <text x="168" y="92" font-family="'Inter', 'Segoe UI', system-ui" font-size="60" font-weight="600">
+    <tspan fill="#F9FAFF">Vox</tspan><tspan fill="url(#lockupGradient)" dx="0">Wit</tspan>
+  </text>
+  <text x="184" y="120" font-family="'Inter', 'Segoe UI', system-ui" font-size="16" fill="#A5B4FC">
+    AI Copilot for LinkedIn
+  </text>
+  <text x="344" y="166" font-family="'Apple Chancery', 'Segoe Script', 'Lucida Handwriting', 'Brush Script MT', cursive" font-size="26" text-anchor="middle" fill="#FFFFFF">
+    Craft posts people enjoy
+  </text>
+</svg>

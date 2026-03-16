@@ -1,0 +1,20 @@
+<svg width="640" height="200" viewBox="0 0 640 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="VoxWit wordmark">
+  <defs>
+    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7C3AED" />
+      <stop offset="100%" stop-color="#06B6D4" />
+    </linearGradient>
+  </defs>
+  <rect width="640" height="200" rx="40" fill="#0B0B15" />
+  <g transform="translate(40 40)">
+    <rect width="120" height="120" rx="28" fill="#1E1B4B" />
+    <path d="M24 32c0-8.8 7.2-16 16-16h64c8.8 0 16 7.2 16 16v40c0 8.8-7.2 16-16 16H88l-16 28-16-28H40c-8.8 0-16-7.2-16-16z" fill="url(#gradient)" />
+    <circle cx="48" cy="48" r="8" fill="#fff" />
+    <circle cx="96" cy="48" r="8" fill="#fff" />
+    <path d="M56 108c12 9 36 9 48 0" stroke="#fff" stroke-width="8" stroke-linecap="round" fill="none" />
+  </g>
+  <text x="200" y="92" font-family="'Inter', 'Segoe UI', system-ui" font-size="64" font-weight="600">
+    <tspan fill="#F9FAFF">Vox</tspan><tspan fill="url(#gradient)" dx="0">Wit</tspan>
+  </text>
+  <text x="200" y="140" font-family="'Inter', 'Segoe UI', system-ui" font-size="20" letter-spacing="4" fill="#9CA3AF">WRITE POSTS PEOPLE ENJOY</text>
+</svg>
