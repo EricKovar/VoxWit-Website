@@ -4,6 +4,7 @@
   "buildCommand": "npm install && npm run build",
   "outputDirectory": ".next",
   "env": {
-    "NEXT_PUBLIC_HUMOR_ENGINE_URL": "https://api.voxwit.com/generate-hooks"
+    "NEXT_PUBLIC_HUMOR_ENGINE_URL": "https://voxwit-humor-engine.onrender.com/generate-hooks",
+    "WAITLIST_API_URL": "https://voxwit-humor-engine.onrender.com/waitlist"
   }
 }

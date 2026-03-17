@@ -19,6 +19,29 @@ export async function POST(request: Request) {
       );
     }
 
+    const waitlistApiUrl = process.env.WAITLIST_API_URL;
+    if (waitlistApiUrl) {
+      try {
+        const response = await fetch(waitlistApiUrl, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email: email.toLowerCase(), source: "voxwit.com" }),
+        });
+
+        if (!response.ok) {
+          throw new Error(`Waitlist API returned ${response.status}`);
+        }
+
+        return NextResponse.json({ success: true });
+      } catch (error) {
+        console.error("Waitlist API error", error);
+        return NextResponse.json(
+          { error: "Unable to save your email right now. Please try again." },
+          { status: 500 }
+        );
+      }
+    }
+
     const supabaseUrl = process.env.SUPABASE_URL;
     const supabaseKey = process.env.SUPABASE_ANON_KEY;
     const tableName = process.env.SUPABASE_WAITLIST_TABLE ?? "voxwit_waitlist";
@@ -28,7 +51,7 @@ export async function POST(request: Request) {
         {
           success: true,
           message:
-            "Waitlist submission captured locally. Add Supabase credentials to persist in production.",
+            "Waitlist submission captured locally. Add Supabase or WAITLIST_API_URL credentials to persist in production.",
         },
         { status: 200 }
       );
