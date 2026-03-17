@@ -15,12 +15,20 @@ export function SiteHeader() {
             priority
           />
         </Link>
-        <Link
-          href="#early-access"
-          className="rounded-full border border-white/15 px-5 py-2 text-sm font-semibold text-white transition hover:border-softCyan hover:text-softCyan"
-        >
-          Join waitlist
-        </Link>
+        <div className="flex items-center gap-3">
+          <Link
+            href="/demo"
+            className="rounded-full border border-white/15 px-5 py-2 text-sm font-semibold text-white transition hover:border-softCyan hover:text-softCyan"
+          >
+            Live demo
+          </Link>
+          <Link
+            href="#early-access"
+            className="rounded-full border border-white/15 px-5 py-2 text-sm font-semibold text-white transition hover:border-softCyan hover:text-softCyan"
+          >
+            Join waitlist
+          </Link>
+        </div>
       </div>
     </header>
   );
