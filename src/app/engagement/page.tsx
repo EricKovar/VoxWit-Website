@@ -10,7 +10,7 @@ function Pill({ children }: { children: React.ReactNode }) {
   );
 }
 
-export default function Home() {
+export default function EngagementHome() {
   return (
     <main className="relative overflow-hidden bg-midnight text-white">
       <div className="absolute inset-x-0 top-[-200px] z-0 h-[500px] bg-gradient-to-b from-electricPurple/30 via-transparent to-transparent blur-3xl" />
