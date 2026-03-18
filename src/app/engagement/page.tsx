@@ -28,11 +28,15 @@ export default function EngagementHome() {
               <h1 className="text-4xl font-semibold leading-tight sm:text-5xl">
                 Say something worth posting.
               </h1>
-              <p className="text-lg text-white/70">
-                VoxWit helps you craft comments that are: Clever not Cringe,
-                Engaging not Extra,
-                Meaningful and memorable. Short, specific, and socially calibrated.
-              </p>
+              <div className="text-lg text-white/70 space-y-3">
+                <p>VoxWit helps you craft comments that are:</p>
+                <ul className="list-disc pl-6 space-y-1">
+                  <li>Clever not Cringe</li>
+                  <li>Engaging not Extra</li>
+                  <li>Meaningful and memorable</li>
+                </ul>
+                <p>Short, specific, and socially calibrated.</p>
+              </div>
               <div className="flex flex-wrap gap-3">
                 <Pill>LinkedIn comments</Pill>
                 <Pill>X replies</Pill>
