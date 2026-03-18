@@ -14,70 +14,79 @@ export default function EngagementHome() {
   return (
     <main className="relative overflow-hidden bg-midnight text-white">
       <div className="absolute inset-x-0 top-[-200px] z-0 h-[500px] bg-gradient-to-b from-electricPurple/30 via-transparent to-transparent blur-3xl" />
-      <div className="relative z-10 flex flex-col gap-6">
+      <div className="relative z-10 flex flex-col gap-2">
         <SiteHeader />
 
         {/* Hero */}
-        <section className="section-wrapper" style={{ backgroundColor: "#121024" }}>
-          <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-2 lg:items-center">
-            <div className="space-y-6">
-              <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1 text-sm text-white/80 backdrop-blur">
+        <section className="section-wrapper" style={{ backgroundColor: "#121024", paddingTop: 0 }}>
+          <div className="mx-auto max-w-6xl">
+            <h1 className="text-4xl font-semibold leading-tight sm:text-5xl text-center bg-gradient-to-r from-sky-400 to-blue-600 bg-clip-text text-transparent">
+              Say something worth posting...
+            </h1>
+          </div>
+          <div className="mx-auto grid max-w-6xl gap-6 lg:grid-cols-2 lg:items-start mt-12">
+            <div className="space-y-4">
+              <div className="rounded-3xl border border-white/10 bg-white/5 p-6">
+                <div className="text-lg text-white/70 space-y-3">
+                  <p className="font-semibold text-[1.4rem] text-white">VoxWit helps you craft comments that are:</p>
+                  <ul className="list-disc pl-6 space-y-1">
+                    <li>Clever not Cringe</li>
+                    <li>Engaging not Extra</li>
+                    <li>Meaningful and memorable</li>
+                  </ul>
+                  <p>Short, specific, and socially calibrated.</p>
+                </div>
+                <div className="mt-4 flex flex-wrap gap-3">
+                  <Pill>LinkedIn comments</Pill>
+                  <Pill>X replies</Pill>
+                  <Pill>Instagram comments</Pill>
+                </div>
+                <div className="mt-4 flex gap-4">
+                  <Link href="#try" className="rounded-full bg-electricPurple px-6 py-3 text-base font-semibold text-white shadow-glow transition hover:scale-[1.01] hover:bg-electricPurple/90">
+                    Try the comment demo
+                  </Link>
+                  <Link href="#how" className="rounded-full border border-white/20 px-6 py-3 text-base font-semibold text-white/80 transition hover:border-white hover:text-white">
+                    See how it works
+                  </Link>
+                </div>
+              </div>
+              <div className="mt-3 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1 text-sm text-white/80 backdrop-blur">
                 <span className="h-2 w-2 rounded-full bg-softCyan" />
                 New: Engagement Copilot (LinkedIn Beta)
               </div>
-              <h1 className="text-4xl font-semibold leading-tight sm:text-5xl">
-                Say something worth posting.
-              </h1>
-              <div className="text-lg text-white/70 space-y-3">
-                <p>VoxWit helps you craft comments that are:</p>
-                <ul className="list-disc pl-6 space-y-1">
-                  <li>Clever not Cringe</li>
-                  <li>Engaging not Extra</li>
-                  <li>Meaningful and memorable</li>
-                </ul>
-                <p>Short, specific, and socially calibrated.</p>
-              </div>
-              <div className="flex flex-wrap gap-3">
-                <Pill>LinkedIn comments</Pill>
-                <Pill>X replies</Pill>
-                <Pill>Instagram comments</Pill>
-              </div>
-              <div className="flex gap-4 pt-2">
-                <Link href="#try" className="rounded-full bg-electricPurple px-6 py-3 text-base font-semibold text-white shadow-glow transition hover:scale-[1.01] hover:bg-electricPurple/90">
-                  Try the comment demo
-                </Link>
-                <Link href="#how" className="rounded-full border border-white/20 px-6 py-3 text-base font-semibold text-white/80 transition hover:border-white hover:text-white">
-                  See how it works
-                </Link>
-              </div>
             </div>
             <div className="rounded-3xl border border-white/10 bg-white/5 p-6 text-white shadow-2xl shadow-electricPurple/30 backdrop-blur">
-              <header className="flex items-center justify-between text-sm text-white/60">
-                <span>Comment Copilot</span>
-                <div className="flex items-center gap-2">
-                  <span className="h-2 w-2 rounded-full bg-softCyan" />
-                  Context-aware
-                </div>
-              </header>
-              <div className="mt-6 grid gap-4 rounded-2xl bg-midnight/60 p-6">
-                <div>
-                  <p className="text-xs uppercase tracking-wide text-white/40">Post</p>
-                  <div className="mt-2 rounded-2xl border border-white/10 bg-white/5 p-4 text-sm text-white/80">
-                    "We replaced 5 standups with a dashboard. Team is 20% faster, happier, and less Zoomed out."
-                  </div>
-                </div>
-                <div>
-                  <p className="text-xs uppercase tracking-wide text-softCyan">Suggested comment</p>
-                  <div className="mt-2 rounded-2xl border border-softCyan/30 bg-white/5 p-4 text-base font-medium text-white">
-                    The underrated win here is fewer status theatrics. Curious: did decision quality change once meetings went async?
-                  </div>
-                </div>
+              <h3 className="text-xl font-semibold text-softCyan">Leveraging Engagement to Accelerate Brand Growth</h3>
+              <p className="mt-3 text-white/80">
+                <strong>Core Insight:</strong> Attention is not only earned through posting — it is captured through participation.
+              </p>
+              <div className="mt-4">
+                <h4 className="text-base font-semibold text-white">Strategy</h4>
+                <ul className="mt-2 list-disc pl-6 text-white/80 space-y-1">
+                  <li>Actively engage with high‑visibility content to tap into existing audiences</li>
+                  <li>Leave thoughtful, value‑driven comments on relevant posts</li>
+                  <li>Prioritize insight, perspective, or useful additions (not generic praise)</li>
+                  <li>Engage consistently to build recognition and credibility</li>
+                </ul>
               </div>
-              <div className="mt-6 flex flex-wrap gap-2">
-                <Pill>insightful</Pill>
-                <Pill>clever</Pill>
-                <Pill>supportive</Pill>
-                <Pill>contrarian‑but‑polite</Pill>
+              <div className="mt-5">
+                <h4 className="text-base font-semibold text-white">Why It Works</h4>
+                <ul className="mt-2 list-disc pl-6 text-white/80 space-y-1">
+                  <li>Expands reach beyond your immediate network</li>
+                  <li>Signals relevance to platform algorithms</li>
+                  <li>Positions the brand as active, knowledgeable, and community‑driven</li>
+                </ul>
+              </div>
+              <div className="mt-5">
+                <h4 className="text-base font-semibold text-white">Execution Principle</h4>
+                <p className="mt-2 text-white/80">“Be where the attention already is — and contribute meaningfully.”</p>
+              </div>
+              <div className="mt-5">
+                <h4 className="text-base font-semibold text-white">Expected Outcome</h4>
+                <p className="mt-2 text-white/80">Increased visibility, stronger audience trust, and accelerated organic growth.</p>
+              </div>
+              <div className="mt-6 text-sm text-white/50">
+                Sources / Influences: Gary Vaynerchuk · Neil Patel · Jasmine Star · Alex Hormozi
               </div>
             </div>
           </div>
