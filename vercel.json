@@ -1,7 +1,7 @@
 {
   "version": 2,
   "framework": "nextjs",
-  "buildCommand": "npm install && npm run build",
+  "buildCommand": "npm run build",
   "outputDirectory": ".next",
   "env": {
     "NEXT_PUBLIC_HUMOR_ENGINE_URL": "https://voxwit-humor-engine.onrender.com/generate-hooks",
