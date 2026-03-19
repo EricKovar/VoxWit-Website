@@ -1,0 +1,20 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="VoxWit logo">
+  <defs>
+    <linearGradient id="voxwitGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7C3AED" />
+      <stop offset="100%" stop-color="#06B6D4" />
+    </linearGradient>
+    <linearGradient id="spark" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.95" />
+      <stop offset="100%" stop-color="#E0E7FF" stop-opacity="0.7" />
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="110" fill="#111827" />
+  <rect x="48" y="48" width="416" height="416" rx="90" fill="#1E1B4B" />
+  <path d="M128 170c0-14 12-26 26-26h204c14 0 26 12 26 26v76c0 14-12 26-26 26H270l-38 64-38-64h-40c-14 0-26-12-26-26z" fill="url(#voxwitGradient)" />
+  <path d="M188 270l56 108 56-108h64c20 0 36-16 36-36v-72c0-20-16-36-36-36H148c-20 0-36 16-36 36v72c0 20 16 36 36 36h40z" fill="none" stroke="rgba(255,255,255,0.22)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M352 332c0 32-26 58-58 58s-58-26-58-58" fill="none" stroke="url(#spark)" stroke-width="18" stroke-linecap="round" />
+  <circle cx="330" cy="196" r="16" fill="#FFFFFF" />
+  <circle cx="182" cy="196" r="16" fill="#FFFFFF" />
+  <path d="M208 368c24 18 72 18 96 0" stroke="#FFFFFF" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+</svg>
