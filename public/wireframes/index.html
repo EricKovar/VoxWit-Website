@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>VoxWit Wireframes</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <div class="nav-toggle">
+        <button class="active" data-target="extension">Chrome extension</button>
+        <button data-target="demo">Demo walkthrough</button>
+      </div>
+    </header>
+
+    <main>
+      <section id="extension" class="frame active">
+        <h2>Extension popup · MVP view</h2>
+        <p>Everything centers on the “Improve hook” moment; future actions are visible but disabled.</p>
+        <div class="popup">
+          <div class="brand-row">
+            <img class="logo-mark" src="voxwit-logo.svg" alt="VoxWit logo" />
+            <div>
+              <p class="brand-name">VoxWit Copilot (Beta)</p>
+              <p class="brand-tagline">Craft clever posts to #StopTheScroll</p>
+            </div>
+            <a class="website-link" href="https://www.voxwit.com" target="_blank" rel="noreferrer">voxwit.com</a>
+          </div>
+
+          <div class="status-line">
+            <span class="status-chip">Draft detected</span>
+            <span class="status-copy">LinkedIn • live capture</span>
+          </div>
+
+          <section class="hook-stack">
+            <div class="hook-header">
+              <div>
+                <p class="hook-title">Improve hook</p>
+                <p class="hook-sub">Pick a <span class="accent">style</span>, generate, copy your fav.</p>
+              </div>
+              <button class="capsule primary" data-action="simulate-run">Generate</button>
+            </div>
+
+            <div class="style-grid">
+              <button data-style="setup">Setup → Punchline</button>
+              <button data-style="rule">Rule of Three</button>
+              <button data-style="satire">Corporate Satire · Misdirection</button>
+              <button data-style="escalation">Escalation</button>
+            </div>
+
+            <div class="suggestion-list compact">
+              <div class="card">
+                <div class="card-header">
+                  <span>Option A</span>
+                  <button class="copy-pill" type="button" aria-label="Copy suggestion">⧉</button>
+                </div>
+                <div class="card-body" data-hook-card>Hook preview will appear here.</div>
+              </div>
+              <div class="card">
+                <div class="card-header">
+                  <span>Option B</span>
+                  <button class="copy-pill" type="button" aria-label="Copy suggestion">⧉</button>
+                </div>
+                <div class="card-body" data-hook-card>Hook preview will appear here.</div>
+              </div>
+              <div class="card">
+                <div class="card-header">
+                  <span>Option C</span>
+                  <button class="copy-pill" type="button" aria-label="Copy suggestion">⧉</button>
+                </div>
+                <div class="card-body" data-hook-card>Hook preview will appear here.</div>
+              </div>
+            </div>
+          </section>
+
+          <section class="future-grid">
+            <p class="future-label">Coming soon</p>
+            <div class="future-cards">
+              <div class="card disabled">
+                <p>Clean rewrite</p>
+                <small>Lean version of your full post</small>
+              </div>
+              <div class="card disabled">
+                <p>Humor riff</p>
+                <small>Light observational wit</small>
+              </div>
+              <div class="card disabled">
+                <p>Full rewrite</p>
+                <small>Structured story arc</small>
+              </div>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <section id="demo" class="frame">
+        <div class="demo-board">
+          <div class="demo-canvas">
+            <div class="demo-brand">
+              <img src="voxwit-mark.png" alt="VoxWit logo" class="logo-mark" />
+              <div>
+                <p class="demo-brand-name">VoxWit Copilot <span>(Beta)</span></p>
+                <p class="demo-brand-sub">Live Demo powered by the Room 52 Lab Humor Engine</p>
+              </div>
+            </div>
+
+            <div class="demo-draft-box">
+              <p class="demo-draft-label">Text box</p>
+              <textarea data-demo-draft class="demo-draft-input">Automated outreach saved us six hours a week, now the team wants its playbook.</textarea>
+            </div>
+
+            <div class="structure-header">
+              <p class="structure-title">Improve hook</p>
+              <p class="structure-sub">Pick a <span class="accent">style</span>, generate, copy your favorite.</p>
+            </div>
+            <div class="structure-grid">
+              <button data-structure-style="setup">Setup → Punchline</button>
+              <button data-structure-style="rule">Rule of Three</button>
+              <button data-structure-style="misdirection">Misdirection</button>
+              <button data-structure-style="comparison">Comparison / Analogy</button>
+              <button data-structure-style="escalation">Escalation</button>
+              <button data-structure-style="reveal">Comic Reveal</button>
+              <button data-structure-style="character">Character Perspective</button>
+              <button data-structure-style="reversal">Reversal</button>
+              <button data-structure-style="literal">Absurd Literalism</button>
+              <button data-structure-style="hyperbole">Exaggeration / Hyperbole</button>
+            </div>
+
+            <div class="generate-row">
+              <div class="definition-box">
+                <p class="demo-draft-label">Definition box</p>
+                <div class="structure-preview" data-structure-output>Setup → Punchline: Expectation, twist, done.</div>
+              </div>
+              <button data-demo-generate>Generate</button>
+            </div>
+
+            <div class="demo-option-grid">
+              <div class="demo-option-card">
+                <div class="demo-option-header">
+                  <div>
+                    <p class="demo-option-title">Option A</p>
+                    <p class="demo-option-sub">Ready to paste</p>
+                  </div>
+                  <button class="copy-pill" type="button" aria-label="Copy suggestion">⧉</button>
+                </div>
+                <div class="demo-option-body" data-demo-option="0">Hook preview will appear here.</div>
+              </div>
+              <div class="demo-option-card">
+                <div class="demo-option-header">
+                  <div>
+                    <p class="demo-option-title">Option B</p>
+                    <p class="demo-option-sub">Alternate vibe</p>
+                  </div>
+                  <button class="copy-pill" type="button" aria-label="Copy suggestion">⧉</button>
+                </div>
+                <div class="demo-option-body" data-demo-option="1">Hook preview will appear here.</div>
+              </div>
+              <div class="demo-option-card">
+                <div class="demo-option-header">
+                  <div>
+                    <p class="demo-option-title">Option C</p>
+                    <p class="demo-option-sub">Spicier take</p>
+                  </div>
+                  <button class="copy-pill" type="button" aria-label="Copy suggestion">⧉</button>
+                </div>
+                <div class="demo-option-body" data-demo-option="2">Hook preview will appear here.</div>
+              </div>
+            </div>
+
+            <div class="demo-future-grid">
+              <p class="structure-title">Coming soon</p>
+              <div class="future-cards">
+                <div class="card disabled">
+                  <p>Clean rewrite</p>
+                  <small>Lean version of your full post</small>
+                </div>
+                <div class="card disabled">
+                  <p>Humor riff</p>
+                  <small>Light observational wit</small>
+                </div>
+                <div class="card disabled">
+                  <p>Full rewrite</p>
+                  <small>Structured story arc</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
