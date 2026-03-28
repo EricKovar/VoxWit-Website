@@ -1,60 +1,46 @@
-"use client";
-import { useEffect, useState } from 'react';
-import { KPIHeader } from '../../components/dashboard/KPIHeader';
-import { PostTable } from '../../components/dashboard/PostTable';
-import { CommentPanel } from '../../components/dashboard/CommentPanel';
-import { InsightsPanel } from '../../components/dashboard/InsightsPanel';
-import type { Post, Comment } from '../../components/dashboard/types';
-import { loadPosts, loadComments, savePosts, saveComments, resetSeed } from '../../components/dashboard/store';
+import { aggregates, posts } from '@/lib/vw/mockData'
+import { ScoreCard } from '@/components/vw/ScoreCard'
+import { MetricCard } from '@/components/vw/MetricCard'
+import { TrendChart } from '@/components/vw/TrendChart'
+import { InsightCard } from '@/components/vw/InsightCard'
+import { RecommendationCard } from '@/components/vw/RecommendationCard'
 
-export default function DashboardPage() {
-  const [posts, setPosts] = useState<Post[]>([]);
-  const [comments, setComments] = useState<Comment[]>([]);
-
-  useEffect(()=>{
-    setPosts(loadPosts());
-    setComments(loadComments());
-  },[]);
-
-  const onImport = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (!file) return;
-    const reader = new FileReader();
-    reader.onload = () => {
-      try {
-        const json = JSON.parse(String(reader.result));
-        if (json.posts) { setPosts(json.posts); savePosts(json.posts); }
-        if (json.comments) { setComments(json.comments); saveComments(json.comments); }
-      } catch {}
-    };
-    reader.readAsText(file);
-  };
-
-  const onExport = () => {
-    const blob = new Blob([JSON.stringify({ posts, comments }, null, 2)], { type: 'application/json' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url; a.download = 'voxwit-demo-data.json'; a.click();
-    URL.revokeObjectURL(url);
-  };
+export default function Dashboard() {
+  const trend = posts.slice(0, 20).map((p, i) => ({ date: `${20-i}`, value: p.vwScore }))
+  const insights = [
+    { text: 'Curiosity hooks are outperforming other types by 14% last 14d', tag: 'hooks' },
+    { text: 'Short-form on TikTok shows rising engagement after 5pm PT', tag: 'timing' },
+  ]
+  const recs = [
+    { text: 'Increase curiosity hooks to 40-50% of output next week', impact: 'high' as const },
+    { text: 'Batch produce 3 shorts with strong first-2s motion cues', impact: 'med' as const },
+    { text: 'Test statistic hooks on LinkedIn with contrarian angle', impact: 'low' as const },
+  ]
 
   return (
-    <div className="mx-auto max-w-5xl px-4 py-8">
-      <h1 className="text-2xl font-semibold mb-2">Engagement Intelligence Dashboard (Beta demo)</h1>
-      <p className="text-slate-500 mb-3">MVP Dashboard powered by VW Score. Seed data is stored in your browser.</p>
-
-      <div className="flex flex-wrap gap-2 mb-3">
-        <button onClick={()=>{ const r=resetSeed(); setPosts(r.posts); setComments(r.comments); }} className="bg-violet-600 text-white px-3 py-2 rounded">Reset Seed Data</button>
-        <label className="inline-flex items-center gap-2 border border-slate-200 px-3 py-2 rounded bg-white text-slate-900">
-          <input type="file" accept="application/json" onChange={onImport} /> Import JSON
-        </label>
-        <button onClick={onExport} className="border border-slate-200 px-3 py-2 rounded bg-white text-slate-900">Export JSON</button>
+    <div className="space-y-6">
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-4">
+        <ScoreCard label="VW Score" score={aggregates.vwScore} subtitle="Last 30 days" />
+        <MetricCard label="Total Posts" value={aggregates.totalPosts} />
+        <MetricCard label="Total Comments" value={aggregates.totalComments} />
+        <MetricCard label="Total Impressions" value={aggregates.totalImpressions.toLocaleString()} />
       </div>
 
-      <KPIHeader posts={posts} />
-      <PostTable posts={posts} />
-      <CommentPanel comments={comments} />
-      <InsightsPanel posts={posts} />
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+        <MetricCard label="Avg Engagement Rate" value={(aggregates.avgEngagementRate*100).toFixed(2) + '%'} />
+        <MetricCard label="Top Hook Type" value={aggregates.topHookType} />
+        <MetricCard label="Posting Cadence" value={`~${Math.round(aggregates.totalPosts/30)} / day`} />
+      </div>
+
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+        <div className="md:col-span-2">
+          <TrendChart label="VW Score Trend" data={trend} />
+        </div>
+        <div className="space-y-4">
+          <InsightCard title="Insights" items={insights} />
+          <RecommendationCard title="Recommendations" items={recs} />
+        </div>
+      </div>
     </div>
-  );
+  )
 }
