@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { RegisterSW } from "./register-sw";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -32,6 +33,8 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
+  manifest: "/manifest.webmanifest",
+  themeColor: "#07111F",
 };
 
 export default function RootLayout({
@@ -42,6 +45,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.variable} bg-midnight text-white antialiased`}>
+        <RegisterSW />
         {children}
       </body>
     </html>
