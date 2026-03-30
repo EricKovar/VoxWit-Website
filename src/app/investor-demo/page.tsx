@@ -59,7 +59,17 @@ export default function InvestorDemoPage() {
             .filter(Boolean);
         }
         // fallback: ensure we render something
-        if (!out.length) out = ["—", "—", "—"];
+        if (!out.length) {
+          // synthesize demo hooks if live returns empty
+          const src = draft.trim() || DEFAULT_DRAFT;
+          const snippet = src.length > 140 ? `${src.slice(0, 137)}…` : src;
+          const first = (src.split(/\s+/).filter(Boolean)[0] ?? "it").toLowerCase();
+          out = [
+            `${active.sample} ${snippet}`,
+            `${active.sample} (proof: ${snippet})`,
+            `${active.sample} (CTA: tell me how you’d scale ${first})`,
+          ];
+        }
         if (out.length < 3) out = [...out, ...Array(3 - out.length).fill("—")];
         setOpts(out.slice(0,3));
         return;
