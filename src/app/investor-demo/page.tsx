@@ -36,7 +36,7 @@ export default function InvestorDemoPage() {
     setError(null);
     try {
       if (live) {
-        const res = await fetch("/api/generate-hooks", {
+        const res = await fetch("https://voxwit-humor-engine.onrender.com/generate-hooks", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ post_text: draft, tone: "clever", style: active.id, max_hooks: 3 }),
