@@ -9,20 +9,20 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "VoxWit — Write posts people actually enjoy reading",
+  title: "VoxWit — Optimize for attention",
   description:
-    "VoxWit is an AI writing copilot that helps you craft sharper hooks, clearer writing, and a touch of wit for every post.",
+    "Turn everyday writing into measurable engagement. Stronger posts, smarter comments, and a feedback loop powered by VW Score.",
   openGraph: {
-    title: "VoxWit — AI writing copilot for engaging posts",
+    title: "VoxWit — Optimize for attention",
     description:
-      "Write better LinkedIn posts with smarter hooks, stronger structure, and a touch of wit.",
+      "Turn everyday writing into measurable engagement. Stronger posts, smarter comments, and a feedback loop powered by VW Score.",
     siteName: "VoxWit",
   },
   twitter: {
     card: "summary_large_image",
-    title: "VoxWit — Write posts people enjoy reading",
+    title: "VoxWit — Optimize for attention",
     description:
-      "An AI copilot for LinkedIn writers, founders, and creators. Sharpen hooks, add wit, and publish faster.",
+      "Turn everyday writing into measurable engagement.",
     creator: "@voxwit",
   },
 };
