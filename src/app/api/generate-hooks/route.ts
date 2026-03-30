@@ -78,6 +78,10 @@ export async function POST(req: Request) {
         return { structure: inferStructure(words), hook: words } as StrictHook;
       });
       if (salvage.length) strict = salvage;
+      // Final guard: if still empty, pass-through up to 10 raw strings untruncated
+      if (!strict.length && rawList.length) {
+        strict = rawList.slice(0,10).map((text: string) => ({ structure: inferStructure(text), hook: text.trim() }));
+      }
     }
 
     return new Response(JSON.stringify({ hooks: strict }), {
