@@ -62,9 +62,23 @@ export async function POST(req: Request) {
     const seen = new Set<string>();
     strict = strict
       .map(h => ({ ...h, hook: h.hook.replace(/\s+/g, ' ').trim() }))
-      .filter(h => h.hook && h.hook.split(/\s+/).length <= 25)
+      .filter(h => h.hook && h.hook.split(/\s+/).length <= 28)
       .filter(h => (seen.has(h.hook) ? false : (seen.add(h.hook), true)))
       .slice(0, 10);
+
+    // If empty after filtering, salvage first 3 from raw text by truncating to 25 words
+    if (!strict.length) {
+      const rawList: string[] = ([] as any[])
+        .concat(raw?.hooks?.map((h: any)=>h?.hook).filter(Boolean) || [])
+        .concat(raw?.options || [])
+        .concat(raw?.data || [])
+        .concat((raw?.choices || []).map((c: any)=> (c?.text ?? c?.message?.content ?? '').trim()).filter(Boolean));
+      const salvage = rawList.slice(0,3).map((text: string) => {
+        const words = text.trim().split(/\s+/).slice(0,25).join(' ');
+        return { structure: inferStructure(words), hook: words } as StrictHook;
+      });
+      if (salvage.length) strict = salvage;
+    }
 
     return new Response(JSON.stringify({ hooks: strict }), {
       status: 200,
