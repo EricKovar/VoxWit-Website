@@ -43,9 +43,25 @@ export default function InvestorDemoPage() {
         });
         if (!res.ok) throw new Error(`API ${res.status}`);
         const data = await res.json();
-        const hooks: { text: string }[] = data.hooks ?? [];
-        const out = hooks.map((h) => h.text).filter(Boolean);
-        setOpts(out.length ? out : ["—", "—", "—"]);
+        // adapt possible shapes → strings
+        let out: string[] = [];
+        if (Array.isArray(data?.hooks)) {
+          out = data.hooks
+            .map((h: any) => h?.hook ?? h?.text ?? (typeof h === 'string' ? h : ''))
+            .filter((t: any) => t && typeof t === 'string');
+        } else if (Array.isArray(data?.options)) {
+          out = data.options.filter((t: any)=> typeof t === 'string');
+        } else if (Array.isArray(data?.data)) {
+          out = data.data.filter((t: any)=> typeof t === 'string');
+        } else if (Array.isArray(data?.choices)) {
+          out = data.choices
+            .map((c: any)=> (c?.text ?? c?.message?.content ?? '').trim())
+            .filter(Boolean);
+        }
+        // fallback: ensure we render something
+        if (!out.length) out = ["—", "—", "—"];
+        if (out.length < 3) out = [...out, ...Array(3 - out.length).fill("—")];
+        setOpts(out.slice(0,3));
         return;
       }
       const src = draft.trim() || DEFAULT_DRAFT;
