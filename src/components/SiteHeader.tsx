@@ -25,13 +25,13 @@ export function SiteHeader() {
             href="/investor-demo"
             className="rounded-full border border-white/15 px-5 py-2 text-sm font-semibold text-white transition hover:border-softCyan hover:text-softCyan"
           >
-            Investor Demo
+            Post Pilot
           </Link>
           <Link
             href="/copilot"
             className="rounded-full border border-white/15 px-5 py-2 text-sm font-semibold text-white transition hover:border-softCyan hover:text-softCyan"
-          >
-            Copilot
+>
+            Comment Pro
           </Link>
           <Link
             href="/dashboard"
@@ -69,8 +69,8 @@ export function SiteHeader() {
 
         {open && (
           <div className="absolute right-0 top-full z-50 mt-2 w-56 rounded-lg border border-white/15 bg-midnight/95 p-2 backdrop-blur md:hidden">
-            <Link href="/investor-demo" className="block rounded-md px-3 py-2 text-sm text-white hover:bg-white/5" onClick={()=>setOpen(false)}>Investor Demo</Link>
-            <Link href="/copilot" className="block rounded-md px-3 py-2 text-sm text-white hover:bg-white/5" onClick={()=>setOpen(false)}>Copilot</Link>
+            <Link href="/investor-demo" className="block rounded-md px-3 py-2 text-sm text-white hover:bg-white/5" onClick={()=>setOpen(false)}>Post Pilot</Link>
+            <Link href="/copilot" className="block rounded-md px-3 py-2 text-sm text-white hover:bg-white/5" onClick={()=>setOpen(false)}>Comment Pro</Link>
             <Link href="/dashboard" className="block rounded-md px-3 py-2 text-sm text-white hover:bg-white/5" onClick={()=>setOpen(false)}>Dashboard</Link>
             <Link href="/privacy" className="block rounded-md px-3 py-2 text-sm text-white hover:bg-white/5" onClick={()=>setOpen(false)}>Privacy</Link>
             <Link href="#early-access" className="block rounded-md px-3 py-2 text-sm text-white hover:bg-white/5" onClick={()=>setOpen(false)}>Join waitlist</Link>
