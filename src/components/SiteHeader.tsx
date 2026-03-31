@@ -20,7 +20,7 @@ export function SiteHeader() {
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden items-center gap-3 md:flex">
+        <nav className="hidden items-center gap-3 md:flex" data-version="2026-03-31-2">
           <Link
             href="/investor-demo"
             className="rounded-full border border-white/15 px-5 py-2 text-sm font-semibold text-white transition hover:border-softCyan hover:text-softCyan"
