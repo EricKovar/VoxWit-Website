@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { SiteHeader } from "@/components/SiteHeader";
 import { useEffect, useMemo, useState } from "react";
 
 const navItems = [
@@ -76,43 +77,7 @@ export default function Landing() {
         <div className="absolute bottom-[-10%] left-[20%] h-[24rem] w-[24rem] rounded-full bg-emerald-500/10 blur-3xl" />
       </div>
 
-      <header className="sticky top-0 z-40 border-b border-white/10 bg-[#07111f]/80 backdrop-blur-xl">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
-          <Link href="#top" className="shrink-0"><BrandMark /></Link>
-          <nav className="hidden items-center gap-8 text-sm text-slate-300 lg:flex" aria-label="Primary">
-            {navItems.map((i) => (
-              <Link key={i.href} href={i.href} className="transition hover:text-white">{i.label}</Link>
-            ))}
-          </nav>
-          <div className="hidden lg:block">
-            <Link href="#waitlist" className="rounded-2xl bg-white px-5 py-2 text-sm font-semibold text-slate-950 hover:bg-slate-100">Get Early Access</Link>
-          </div>
-          <button
-            type="button"
-            aria-expanded={mobileOpen}
-            aria-label={mobileOpen ? "Close navigation" : "Open navigation"}
-            onClick={() => setMobileOpen((v) => !v)}
-            className="inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-white lg:hidden focus:outline-none focus:ring-2 focus:ring-cyan-400/50"
-          >
-            <span className="sr-only">Menu</span>
-            <div className="h-4 w-5">
-              <div className={`h-0.5 w-5 bg-white transition ${mobileOpen ? "translate-y-1.5 rotate-45" : ""}`}></div>
-              <div className={`mt-1 h-0.5 w-5 bg-white transition ${mobileOpen ? "opacity-0" : ""}`}></div>
-              <div className={`mt-1 h-0.5 w-5 bg-white transition ${mobileOpen ? "-translate-y-1.5 -rotate-45" : ""}`}></div>
-            </div>
-          </button>
-        </div>
-        {mobileOpen && (
-          <div className="border-t border-white/10 bg-[#07111f]/95 px-6 py-4 lg:hidden">
-            <div className="flex flex-col gap-4 text-sm text-slate-300">
-              {navItems.map((i) => (
-                <Link key={i.href} href={i.href} onClick={() => setMobileOpen(false)} className="rounded-xl px-2 py-1 transition hover:bg-white/5 hover:text-white">{i.label}</Link>
-              ))}
-              <Link href="#waitlist" onClick={() => setMobileOpen(false)} className="mt-2 w-full rounded-2xl bg-white px-5 py-2 text-center text-slate-950 hover:bg-slate-100">Get Early Access</Link>
-            </div>
-          </div>
-        )}
-      </header>
+      <SiteHeader />
 
       <div id="top" className="relative z-10">
         {/* Hero */}
