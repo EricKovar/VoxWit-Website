@@ -29,7 +29,7 @@ export default function CopilotPage() {
     if (!draft.trim()) return;
     setLoading(true); setError(null); setOptA(''); setOptB(''); setOptC('');
     try {
-      const res = await fetch(HUMOR_ENGINE_URL, {
+      const res = await fetch("https://voxwit-humor-engine.vercel.app/api/generate", {
         method: 'POST', headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ input_text: draft, tone: 'witty', style: active, max_hooks: 3 })
       });
