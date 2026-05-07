@@ -36,10 +36,10 @@ export default function InvestorDemoPage() {
     setError(null);
     try {
       if (live) {
-        const res = await fetch("https://voxwit-humor-engine.onrender.com/generate-hooks", {
+        const res = await fetch("https://voxwit-humor-engine.vercel.app/api/generate", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ post_text: draft, tone: "clever", style: active.id, max_hooks: 3 }),
+          body: JSON.stringify({ input_text: draft, tone: "witty", style: active.id, max_hooks: 3 }),
         });
         if (!res.ok) throw new Error(`API ${res.status}`);
         const data = await res.json();

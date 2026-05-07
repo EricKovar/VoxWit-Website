@@ -14,7 +14,7 @@ const styles = [
   { key: 'question_hook', name: 'Question Hook', desc: 'Make them answer' },
 ];
 
-const HUMOR_ENGINE_URL = process.env.NEXT_PUBLIC_HUMOR_ENGINE_URL ?? 'https://voxwit-humor-engine.onrender.com/generate-hooks';
+const HUMOR_ENGINE_URL = process.env.NEXT_PUBLIC_HUMOR_ENGINE_URL ?? 'https://voxwit-humor-engine.vercel.app/api/generate';
 
 export default function CopilotPage() {
   const [draft, setDraft] = useState('Automated outreach saved us six hours a week, now the team wants its playbook.');
@@ -31,14 +31,15 @@ export default function CopilotPage() {
     try {
       const res = await fetch(HUMOR_ENGINE_URL, {
         method: 'POST', headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ post_text: draft, tone: 'clever', style: active, max_hooks: 3 })
+        body: JSON.stringify({ input_text: draft, tone: 'witty', style: active, max_hooks: 3 })
       });
       if (!res.ok) throw new Error(`Request failed: ${res.status}`);
       const data = await res.json();
-      const hooks: { text: string }[] = data.hooks ?? [];
-      setOptA(hooks[0]?.text ?? '—');
-      setOptB(hooks[1]?.text ?? '—');
-      setOptC(hooks[2]?.text ?? '—');
+      const hooks = data.options ?? data.hooks ?? [];
+      const normalized = hooks.map((h:any) => typeof h === "string" ? { text: h } : h);
+      setOptA(normalized[0]?.text ?? '—');
+      setOptB(normalized[1]?.text ?? '—');
+      setOptC(normalized[2]?.text ?? '—');
     } catch (e:any) {
       setError(e.message ?? 'Unknown error');
     } finally { setLoading(false); }

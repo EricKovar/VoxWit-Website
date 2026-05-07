@@ -14,7 +14,7 @@ const styles = [
   'Question Hook',
 ];
 
-const HUMOR_ENGINE_URL = process.env.NEXT_PUBLIC_HUMOR_ENGINE_URL ?? 'https://voxwit-humor-engine.onrender.com/generate-hooks';
+const HUMOR_ENGINE_URL = process.env.NEXT_PUBLIC_HUMOR_ENGINE_URL ?? 'https://voxwit-humor-engine.vercel.app/api/generate';
 
 export default function StylesPage() {
   const [text, setText] = useState('Paste a topic or draft…');
@@ -26,9 +26,11 @@ export default function StylesPage() {
     const out: Record<string,string> = {};
     for (const s of styles) {
       try {
-        const res = await fetch(HUMOR_ENGINE_URL, { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ post_text: text, tone: 'clever', style: s, max_hooks: 1 })});
+        const res = await fetch(HUMOR_ENGINE_URL, { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ input_text: text, tone: 'witty', style: s, max_hooks: 1 })});
         const data = await res.json();
-        out[s] = data.hooks?.[0]?.text ?? '—';
+        const hooks = data.options ?? data.hooks ?? [];
+        const normalized = hooks.map((h:any) => typeof h === 'string' ? { text: h } : h);
+        out[s] = normalized?.[0]?.text ?? '—';
       } catch {
         out[s] = 'Error generating';
       }

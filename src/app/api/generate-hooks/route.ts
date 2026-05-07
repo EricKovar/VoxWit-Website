@@ -15,7 +15,7 @@ function inferStructure(text: string): string {
 export async function POST(req: Request) {
   try {
     const body = await req.json().catch(() => ({}));
-    const upstream = 'https://voxwit-humor-engine.onrender.com/generate-hooks';
+    const upstream = 'https://voxwit-humor-engine.vercel.app/api/generate';
     const res = await fetch(upstream, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
