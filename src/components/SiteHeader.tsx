@@ -40,6 +40,12 @@ export function SiteHeader() {
             Dashboard
           </Link>
           <Link
+            href="/organizations"
+            className="rounded-full border border-white/15 px-5 py-2 text-sm font-semibold text-white transition hover:border-softCyan hover:text-softCyan"
+          >
+            Organizations
+          </Link>
+          <Link
             href="/privacy"
             className="rounded-full border border-white/15 px-5 py-2 text-sm font-semibold text-white transition hover:border-softCyan hover:text-softCyan"
           >
@@ -72,6 +78,7 @@ export function SiteHeader() {
             <Link href="/investor-demo" className="block rounded-md px-3 py-2 text-sm text-white hover:bg-white/5" onClick={()=>setOpen(false)}>Post Pilot</Link>
             <Link href="/copilot" className="block rounded-md px-3 py-2 text-sm text-white hover:bg-white/5" onClick={()=>setOpen(false)}>Comment Pro</Link>
             <Link href="/dashboard" className="block rounded-md px-3 py-2 text-sm text-white hover:bg-white/5" onClick={()=>setOpen(false)}>Dashboard</Link>
+            <Link href="/organizations" className="block rounded-md px-3 py-2 text-sm text-white hover:bg-white/5" onClick={()=>setOpen(false)}>Organizations</Link>
             <Link href="/privacy" className="block rounded-md px-3 py-2 text-sm text-white hover:bg-white/5" onClick={()=>setOpen(false)}>Privacy</Link>
             <Link href="#early-access" className="block rounded-md px-3 py-2 text-sm text-white hover:bg-white/5" onClick={()=>setOpen(false)}>Join waitlist</Link>
           </div>
